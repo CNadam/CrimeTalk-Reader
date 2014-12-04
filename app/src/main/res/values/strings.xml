@@ -21,7 +21,7 @@
     <!-- Strings for AndroidManifest -->
     <string name="app_launcher_name">CrimeTalk</string>
     <string name="app_name">CrimeTalk Reader</string>
-    <string name="version_text">Version: 1.0</string>
+    <string name="version_text">Version: 0.1</string>
 
     <!-- Strings for fragments/AboutFragment -->
     <string name="about_class_nod">UCC MA Criminology class of 2015 rules!</string>
