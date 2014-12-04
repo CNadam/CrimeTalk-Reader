@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 John Persano
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:padding="4dp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:fontFamily="sans-serif-light"
+        android:ellipsize="end"
+        android:maxLines="2"
+        style="@android:style/TextAppearance.Large"
+        tools:ignore="UnusedAttribute" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:padding="4dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/author"
+            android:fontFamily="sans-serif-light"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:textColor="?android:textColorSecondary"
+            android:maxLines="1"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:id="@+id/date"
+            android:layout_weight="1.5"
+            android:ellipsize="end"
+            android:textColor="?android:textColorSecondary"
+            android:singleLine="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hits"
+            android:layout_weight="1.75"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="end"
+            android:ellipsize="end"
+            android:textColor="?android:textColorSecondary"
+            android:singleLine="true"
+            tools:ignore="UnusedAttribute" />
+
+    </LinearLayout>
+
+</RelativeLayout>

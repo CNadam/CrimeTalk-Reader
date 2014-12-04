@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 John Persano
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tabstrip="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <uk.org.crimetalk.views.TabStrip
+        android:id="@+id/tabstrip"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/crimetalk_red"
+        tabstrip:pstsUnderlineHeight="2dp"
+        tabstrip:pstsUnderlineColor="@color/shadow"
+        tabstrip:pstsIndicatorColor="@color/white"
+        tabstrip:pstsIndicatorHeight="4dp"
+        tabstrip:pstsDividerColor="@android:color/transparent"
+        tabstrip:pstsActivateTextColor="@color/white"
+        tabstrip:pstsDeactivateTextColor="@color/light_gray"
+        style="@style/Theme.CrimeTalk"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

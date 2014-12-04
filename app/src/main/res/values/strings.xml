@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* Copyright 2014, John Persano
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Strings for AndroidManifest -->
+    <string name="app_launcher_name">CrimeTalk</string>
+    <string name="app_name">CrimeTalk Reader</string>
+    <string name="version_text">Version: 1.0</string>
+
+    <!-- Strings for fragments/AboutFragment -->
+    <string name="about_class_nod">UCC MA Criminology class of 2015 rules!</string>
+
+    <!-- Strings for fragments/ArticleContentFragment -->
+    <string name="base_url">http://crimetalk.org.uk/%1s</string>
+
+    <!-- Strings for fragments/ArticleListFragment -->
+    <string name="search_library">Search library</string>
+    <string name="search_press_cuttings">Search press cuttings</string>
+    <string name="hits">Hits: %1s</string>
+
+    <!-- Strings for fragments/BookFragment -->
+    <string name="book_format">Book format: %1s</string>
+    <!-- XML -->
+    <string name="button_more_information">More Information</string>
+    <string name="description_book_cover">Book cover</string>
+
+    <!-- Strings for the fragments/LibraryFragment -->
+    <string name="library_featured_articles">Featured articles</string>
+    <string name="library_in_brief">In brief</string>
+    <string name="library_editors_blog">Editor\'s blog</string>
+
+    <!-- Strings for the fragments/NavigationDrawerFragment -->
+
+
+    <!-- Strings for fragments/PagerFragment -->
+    <string name="title_quick_nav_fragment">Quick Navigation</string>
+
+    <!-- Strings for the fragments/PressCuttingsFragment -->
+    <string name="presscuttings_economic_corporate">Economic/Corporate</string>
+    <string name="presscuttings_media_stigma">Media/Stigma</string>
+    <string name="presscuttings_violence">Violence</string>
+    <string name="presscuttings_drugs_mind">Drugs/Mind</string>
+    <string name="presscuttings_prisons_punishment">Prisons/Punishment</string>
+    <string name="presscuttings_youth_children">Youth/Children</string>
+    <string name="presscuttings_policing_governance">Policing/Governance</string>
+    <string name="presscuttings_society_policy">Society/Policy</string>
+    <string name="presscuttings_crimetalk">CrimeTalk</string>
+    <string name="presscuttings_support_education">Support/Education</string>
+    <string name="presscuttings_culture_ideology">Culture/Ideology</string>
+    <string name="presscuttings_race">Race</string>
+    <string name="presscuttings_state_war">The State/War</string>
+    <string name="presscuttings_victims">Victims</string>
+    <string name="presscuttings_sex_gender">Sex &amp; Gender</string>
+    <string name="presscuttings_law_justice">Law/Justice</string>
+    <string name="presscuttings_history">History</string>
+
+    <!-- Strings for fragments/SearchFragment -->
+    <string name="search_error">No articles found</string>
+
+    <!-- Strings for fragments/ShopFragment -->
+    <string name="sod_title">Sociology of Deviance: An Obituary</string>
+    <string name="sod_author">Colin Sumner</string>
+    <string name="sod_format">E-book/Paperback</string>
+    <string name="sod_summary">This book charts the rise and fall of a field of enquiry.
+        It critically documents its rise out of the late 1930\'s to popularity as part of a
+        libertarian critique of heavy-handed authority in the sociology of the 1960\'s.
+        The concept of deviance was an area of social scientific research, a psychiatric-sounding term of social censure,
+        and a conceptual playpen for the culturally defiant. It began as a generic term for behaviour breaking
+        social norms in a New Deal USA striving for unity, but declined when revealed in the 1970\'s as a selective
+        and incoherent censure of challenges to the culture of patriarchal capitalist society, e.g. adolescent delinquency,
+        hippie lifestyles, drug culture, independent female sexuality, subcultural black cool, and the socialistic.
+        The book ends with an outline of the author\'s concept of social censure as the replacement for the idea of deviant behaviour.</string>
+    <string name="bhopal_title">Bhopal: Flowers at the altar of profit and power</string>
+    <string name="bhopal_author">Frank Pearce and Steve Tombs</string>
+    <string name="bhopal_format">E-book</string>
+    <string name="bhopal_summary">In December 1984, a massive gas leak killed thousands in and around a Union Carbide chemical plant in Bhopal,
+        India; tens of thousands have died since, and many more have had their lives and livelihoods devastated.
+        The US-based company and its CEO remain absconders from Indian justice.
+        They have consistently denied, obfuscated and used the resources at the disposal of the powerful to evade any legal judgment.
+        This book draws on a considerable literature to make a social scientific judgment of their liability for the world’s worst industrial \'disaster\'.
+        It attempts to convey some of the horrendous events and consequences of the gas leak itself,
+        before examining Union Carbide’s responses to and \'explanations\' of the disaster, contrasting these with more persuasive explanations.</string>
+
+    <!-- Strings for utils/DialogUtils -->
+    <string name="dialog_generic_article_title">Article options</string>
+    <string name="dialog_libraries_title">Open source libraries</string>
+    <string name="dialog_press_cuttings_warning_title">Search warning</string>
+    <string name="dialog_press_cuttings_warning_message">Searching though every press cutting article will take a while.</string>
+    <string name="dialog_press_cuttings_warning_negative">Why?</string>
+    <string name="dialog_press_cuttings_warning_positive">I understand</string>
+
+    <!-- Strings for the AboutActivity -->
+    <string name="about_title">About</string>
+    <!-- XML -->
+    <string name="icon_description">CrimeTalk launcher icon</string>
+    <string name="developed_by">Developed by John Persano</string>
+    <string name="licensed_under">Licensed under the Apache License, Version 2.0</string>
+    <string name="button_open_source_libraries">Open source libraries</string>
+    <string name="button_view_project_source">View project source</string>
+
+    <!-- Strings for the ArticleContentActivity -->
+    <string name="article_content_title">Article</string>
+    <!-- XML -->
+    <string name="image_description">Dynamic image based on article</string>
+
+    <!-- Strings for MainActivity -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Strings for the SearchActivity -->
+    <string name="search_title">Search</string>
+
+    <!-- Strings for the SettingsActivity -->
+    <string name="settings_title">Settings</string>
+    <string name="title_general">General</string>
+    <string name="title_dark_theme">Use a dark theme</string>
+    <string name="title_local_browser">Use a local browser</string>
+    <string name="summary_local_browser">Load all articles in a locally installed browser</string>
+    <string name="title_advanced">Advanced</string>
+    <string name="title_network_timeout">Network timeout</string>
+    <string name="summary_network_timeout">Change the network timeout for online operations</string>
+    <string name="dialog_title_network_timeout">Timeout in seconds</string>
+
+    <!-- Misc strings -->
+    <!-- Strings for the share Intent -->
+    <string name="share_via">Share article via…</string>
+    <string name="check_out_article">Check out this article I found on CrimeTalk.</string>
+
+    <!-- Strings for the clipboard action -->
+    <string name="clipboard_article" formatted="false" tools:ignore="StringFormatInvalid">%1s \n \n %2s \n \n %3s</string>
+    <string name="clipboard_toast">Copied article info to clipboard!</string>
+
+    <!-- Strings for res/menu -->
+    <string name="action_share">Share</string>
+    <string name="action_browser">Open in browser</string>
+    <string name="action_clipboard">Copy information</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_rate">Rate app</string>
+    <string name="action_faq">FAQ</string>
+    <string name="action_issue">Report issue</string>
+    <string name="action_contact">Contact developer</string>
+    <string name="action_search">Search</string>
+
+    <!-- Strings for the Internet check -->
+    <string name="internet_error">An error occurred, please try again later</string>
+    <string name="internet_none">No connection</string>
+    <!-- End of misc strings -->
+
+</resources>

@@ -1,0 +1,21 @@
+#built application files
+*.apk
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio
+.idea
+.gradle
+build/
+
+# Log Files
+*.log

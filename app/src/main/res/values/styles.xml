@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* Copyright 2014, John Persano
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources>
+
+    <!-- Light overall theme -->
+    <style name="Theme.CrimeTalk.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/crimetalk_red</item>
+        <item name="colorPrimaryDark">@color/crimetalk_dark_red</item>
+        <item name="colorAccent">@color/crimetalk_red</item>
+        <item name="primaryNavigationRowSelector">@drawable/selector_dark_gray</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:listDivider">@color/divider_light</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+
+    <!-- Dark overall theme -->
+    <style name="Theme.CrimeTalk" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/crimetalk_red</item>
+        <item name="colorPrimaryDark">@color/crimetalk_dark_red</item>
+        <item name="colorAccent">@color/crimetalk_red</item>
+        <item name="primaryNavigationRowSelector">@drawable/selector_light_gray</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/light_gray</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:listDivider">@color/divider_dark</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+
+    <!-- Exclusive theme for the Toolbar -->
+    <style name="Theme.CrimeTalk.Toolbar" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/crimetalk_red</item>
+        <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
+        <item name="searchViewStyle">@style/SearchView</item>
+        <item name="drawerArrowStyle">@style/DrawerToggle</item>
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+    </style>
+
+    <!-- Exclusive theme for the Toolbar SearchView -->
+    <style name="SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/selector_searchview_edittext</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+        <item name="closeIcon">@drawable/ic_close</item>
+    </style>
+
+    <!-- Exclusive theme for the Toolbar DrawerToggle -->
+    <style name="DrawerToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <!-- Exclusive theme for the Toolbar overflow -->
+    <style name="OverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_overflow_round</item>
+    </style>
+
+</resources>
