@@ -308,12 +308,14 @@ public class ArticleListFragment extends ListFragment implements SwipeRefreshLay
 
                 this.setEmptyText(getResources().getString(R.string.internet_error));
                 ((TextView) this.getListView().getEmptyView()).setTextColor(Color.GRAY);
+                ((TextView) this.getListView().getEmptyView()).setTextSize(22);
 
             // The device has no Internet so remind the user
             } else {
 
                 this.setEmptyText(getResources().getString(R.string.internet_none));
                 ((TextView) this.getListView().getEmptyView()).setTextColor(Color.GRAY);
+                ((TextView) this.getListView().getEmptyView()).setTextSize(22);
 
             }
 
@@ -352,7 +354,7 @@ public class ArticleListFragment extends ListFragment implements SwipeRefreshLay
 
                 final Intent librarySearchIntent = new Intent(getActivity(), SearchActivity.class);
                 librarySearchIntent.putParcelableArrayListExtra(SearchActivity.ARG_ARTICLE_LIST_HELPER_LIST, libraryArticleListHelperList);
-                librarySearchIntent.putExtra(SearchActivity.ARG_EMPTY_TEXT, getResources().getString(R.string.search_library));
+                librarySearchIntent.putExtra(SearchActivity.ARG_SEARCH_TEXT, getResources().getString(R.string.search_library));
 
                 startActivity(librarySearchIntent);
 
@@ -364,7 +366,7 @@ public class ArticleListFragment extends ListFragment implements SwipeRefreshLay
 
                 final Intent pressCuttingsSearchIntent = new Intent(getActivity(), SearchActivity.class);
                 pressCuttingsSearchIntent.putParcelableArrayListExtra(SearchActivity.ARG_ARTICLE_LIST_HELPER_LIST, pressCuttingsArticleListHelperList);
-                pressCuttingsSearchIntent.putExtra(SearchActivity.ARG_EMPTY_TEXT, getResources().getString(R.string.search_press_cuttings));
+                pressCuttingsSearchIntent.putExtra(SearchActivity.ARG_SEARCH_TEXT, getResources().getString(R.string.search_press_cuttings));
 
                 startActivity(pressCuttingsSearchIntent);
 

@@ -191,12 +191,14 @@ public class ArticleContentFragment extends ListFragment implements LoaderManage
 
                 this.setEmptyText(getResources().getString(R.string.internet_error));
                 ((TextView) this.getListView().getEmptyView()).setTextColor(Color.GRAY);
+                ((TextView) this.getListView().getEmptyView()).setTextSize(22);
 
                 // The device has no Internet so remind the user
             } else {
 
                 this.setEmptyText(getResources().getString(R.string.internet_none));
                 ((TextView) this.getListView().getEmptyView()).setTextColor(Color.GRAY);
+                ((TextView) this.getListView().getEmptyView()).setTextSize(22);
 
             }
 
