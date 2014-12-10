@@ -24,6 +24,17 @@ Contributing
 Contributions are welcome from any experienced developer. 
 Before submitting a pull request, please read the [Contribution Guide](https://github.com/JohnPersano/CrimeTalk-Reader/wiki/Contribution-Guide).
 
+Libraries used
+==================================
+
+[Jsoup](http://jsoup.org/) <br>
+[Picasso](http://square.github.io/picasso/) <br>
+[SuperToasts](https://github.com/JohnPersano/SuperToasts) <br>
+[Material Dialogs](https://github.com/afollestad/material-dialogs) <br>
+
+With code modified from
+[red1004g fork of PagerSlidingTabStrip](https://github.com/red1004g/PagerSlidingTabStrip)
+
 Developer
 =========
 [John Persano](https://plus.google.com/+JohnPersano)
