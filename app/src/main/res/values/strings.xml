@@ -31,7 +31,9 @@
 
     <!-- Strings for fragments/ArticleListFragment -->
     <string name="search_library">Search library</string>
+    <string name="searching_library_for">Searching library for \'%1s\'</string>
     <string name="search_press_cuttings">Search press cuttings</string>
+    <string name="searching_press_cuttings_for">Searching press cuttings for \'%1s\'</string>
     <string name="hits">Hits: %1s</string>
 
     <!-- Strings for fragments/BookFragment -->

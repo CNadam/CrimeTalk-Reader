@@ -21,6 +21,15 @@
 
     <include layout="@layout/toolbar" />
 
+    <TextView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textStyle="italic"
+        android:textColor="?android:textColorPrimary"
+        android:textAppearance="@android:style/TextAppearance.Large"/>
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

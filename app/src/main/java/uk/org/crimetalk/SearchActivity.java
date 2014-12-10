@@ -25,6 +25,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import uk.org.crimetalk.fragments.SearchFragment;
 import uk.org.crimetalk.utils.ThemeUtils;
@@ -40,7 +41,7 @@ public class SearchActivity extends ActionBarActivity {
     public static final String ARG_ARTICLE_LIST_HELPER_LIST = "article_list_helper_list";
 
     // Arg text to display before searching
-    public static final String ARG_EMPTY_TEXT = "empty_text";
+    public static final String ARG_SEARCH_TEXT = "search_text";
 
     // Arg used to persist query on orientation change
     private static final String ARG_QUERY = "query";
@@ -57,18 +58,30 @@ public class SearchActivity extends ActionBarActivity {
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // If new instance of SearchActivity, load SearchFragment
-        if (savedInstanceState == null) {
+        // Set the search text hint
+        ((TextView) findViewById(R.id.search)).setText(getIntent().getExtras().getString(ARG_SEARCH_TEXT));
 
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, SearchFragment.newInstance(getIntent().getExtras()
-                            .getParcelableArrayList(ARG_ARTICLE_LIST_HELPER_LIST), getIntent().getExtras().getString(ARG_EMPTY_TEXT)))
-                    .commit();
-
-        } else {
+        // Grab the previous query from orientation change
+        if (savedInstanceState != null) {
 
             this.mQuery = savedInstanceState.getString(ARG_QUERY);
+
+            // Restore text in search hint if it exists
+            if(mQuery != null && !mQuery.isEmpty()) {
+
+                if (getIntent().getExtras().getString(ARG_SEARCH_TEXT).equals(getResources().getString(R.string.search_library))) {
+
+                    ((TextView) findViewById(R.id.search)).setText(String.format(getResources().getString(R.string.searching_library_for),
+                            mQuery));
+
+                } else {
+
+                    ((TextView) findViewById(R.id.search)).setText(String.format(getResources().getString(R.string.searching_press_cuttings_for),
+                            mQuery));
+
+                }
+
+            }
 
         }
 
@@ -79,21 +92,41 @@ public class SearchActivity extends ActionBarActivity {
 
         getMenuInflater().inflate(R.menu.activity_search, menu);
 
-        // Modify some aspects of the sSearchView
+        // Modify some aspects of the SearchView
         final SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setQuery(mQuery, false);
         searchView.setIconified(false);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-        final SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete) searchView.findViewById(R.id.search_src_text);
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+
+                SearchActivity.this.mQuery = query;
+
+                return false;
+
+            }
+
+        });
+
+        final SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete)
+                searchView.findViewById(R.id.search_src_text);
         searchAutoComplete.setTextColor(getResources().getColor(R.color.white));
 
-        // This method ensures the search on orientation changes
-        if(mQuery != null && !mQuery.isEmpty()) {
+        // Recovering from orientation change, try not to have focus
+        if (mQuery != null && !mQuery.isEmpty()) {
 
-            // Change the SearchView text and send the search through
-            searchView.setQuery(mQuery, true);
+           searchView.clearFocus();
 
         }
 
@@ -111,24 +144,28 @@ public class SearchActivity extends ActionBarActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        setIntent(intent);
 
-        // User pressed search so send search query to SearchFragment
-        if (Intent.ACTION_SEARCH.equals(getIntent().getAction())) {
+        // User pressed search so start new SearchFragment
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 
-            // If user has changed query, restart the loader
-            if(mQuery != null && !mQuery.equals(getIntent().getStringExtra(SearchManager.QUERY))) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, SearchFragment.newInstance(getIntent().getExtras()
+                            .getParcelableArrayList(ARG_ARTICLE_LIST_HELPER_LIST), intent.getStringExtra(SearchManager.QUERY)))
+                    .commit();
 
-                ((SearchFragment) getSupportFragmentManager().findFragmentById(R.id.container)).search(getIntent().getStringExtra(SearchManager.QUERY), true);
+            // Change search hint text to reflect new search
+            if (getIntent().getExtras().getString(ARG_SEARCH_TEXT).equals(getResources().getString(R.string.search_library))) {
 
-            // We must be recovering from orientation change so reattach loader callbacks
+                ((TextView) findViewById(R.id.search)).setText(String.format(getResources().getString(R.string.searching_library_for),
+                        intent.getStringExtra(SearchManager.QUERY)));
+
             } else {
 
-                ((SearchFragment) getSupportFragmentManager().findFragmentById(R.id.container)).search(getIntent().getStringExtra(SearchManager.QUERY), false);
+                ((TextView) findViewById(R.id.search)).setText(String.format(getResources().getString(R.string.searching_press_cuttings_for),
+                        intent.getStringExtra(SearchManager.QUERY)));
 
             }
-
-            this.mQuery = getIntent().getStringExtra(SearchManager.QUERY);
 
         }
 
