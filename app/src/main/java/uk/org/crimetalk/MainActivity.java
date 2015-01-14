@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 John Persano
+ * Copyright 2015 John Persano
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -42,7 +42,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     // Start Activity for result request code for SettingsActivity
     private static final int SETTINGS_ACTIVITY_REQUEST_CODE = 1;
 
-    private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
     @Override
@@ -57,32 +56,25 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // Setup the NavigationDrawerFragment
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
+        final NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, findViewById(R.id.drawer_layout));
+        navigationDrawerFragment.setUp(R.id.navigation_drawer, findViewById(R.id.drawer_layout));
 
         // Set the title to the correct navigation item
-        mTitle = getResources().getStringArray(R.array.primary_navigation_items)[mNavigationDrawerFragment.getSelectedPosition()];
+        mTitle = getResources().getStringArray(R.array.primary_navigation_items)[navigationDrawerFragment.getSelectedPosition()];
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // Set the title of the Toolbar
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+        if (getSupportActionBar() != null) {
 
-            if (getSupportActionBar() != null) {
-
-                getSupportActionBar().setTitle(mTitle);
-
-            }
-
-            return true;
+            getSupportActionBar().setTitle(mTitle);
 
         }
 
-        return super.onCreateOptionsMenu(menu);
+        return true;
 
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Andreas Stuetz <andreas.stuetz@gmail.com>
+ * Copyright (C) 2013 Andreas Stuetz <andreas.stuetz@gmail.com>, modified by John Persano 2015
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,6 +83,7 @@ public class TabStrip extends HorizontalScrollView {
     private int indicatorHeight = 8;
     private int underlineHeight = 2;
     private int tabPadding = 24;
+    private int indicatorPadding = 0;
 
     private int tabTextSize = 14;
     private int tabTextColor = 0xFF666666;
@@ -92,7 +93,7 @@ public class TabStrip extends HorizontalScrollView {
 
     private int lastScrollX = 0;
 
-    private int tabBackgroundResId = android.R.color.transparent;
+    private int tabBackgroundResId = R.drawable.selector_tab;
 
     private Locale locale;
 
@@ -120,6 +121,7 @@ public class TabStrip extends HorizontalScrollView {
         underlineHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, underlineHeight, dm);
         tabPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, tabPadding, dm);
         tabTextSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, tabTextSize, dm);
+        indicatorPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, indicatorPadding, dm);
 
         // get system attrs (android:textSize and android:textColor)
 
@@ -128,7 +130,6 @@ public class TabStrip extends HorizontalScrollView {
         tabTextSize = a.getDimensionPixelSize(0, tabTextSize);
 
         a.recycle();
-
 
         a = context.obtainStyledAttributes(attrs, R.styleable.TabStrip);
 
@@ -143,6 +144,7 @@ public class TabStrip extends HorizontalScrollView {
         tabSwitch = a.getBoolean(R.styleable.TabStrip_pstsTabSwitch, tabSwitch);
         tabTextColor = a.getColor(R.styleable.TabStrip_pstsActivateTextColor, tabTextColor);
         tabDeactivateTextColor = a.getColor(R.styleable.TabStrip_pstsDeactivateTextColor, tabDeactivateTextColor);
+        indicatorPadding = a.getDimensionPixelSize(R.styleable.TabStrip_pstsIndicatorPadding, indicatorPadding);
 
         a.recycle();
 
@@ -317,18 +319,26 @@ public class TabStrip extends HorizontalScrollView {
 
         // default: line below current tab
         View currentTab = tabsContainer.getChildAt(currentPosition);
+
         float lineLeft = currentTab.getLeft();
+        lineLeft += indicatorPadding;
+
         float lineRight = currentTab.getRight();
+        lineRight -= indicatorPadding;
 
         // if there is an offset, start interpolating left and right coordinates between current and next tab
         if (currentPositionOffset > 0f && currentPosition < tabCount - 1) {
 
             View nextTab = tabsContainer.getChildAt(currentPosition + 1);
-            final float nextTabLeft = nextTab.getLeft();
-            final float nextTabRight = nextTab.getRight();
+            float nextTabLeft = nextTab.getLeft();
+            nextTabLeft += indicatorPadding;
+
+            float nextTabRight = nextTab.getRight();
+            nextTabRight -= indicatorPadding;
 
             lineLeft = (currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
             lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
+
         }
 
         canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height - underlineHeight, rectPaint);

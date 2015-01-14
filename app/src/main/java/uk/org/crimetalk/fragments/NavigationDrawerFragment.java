@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 John Persano
+ * Copyright 2015 John Persano
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,11 +21,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -169,20 +166,6 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
-        if (mDrawerLayout != null && isDrawerOpen()) {
-
-            ((ActionBarActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(true);
-            ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
-
-        }
-
-        super.onCreateOptionsMenu(menu, inflater);
-
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -252,6 +235,8 @@ public class NavigationDrawerFragment extends Fragment {
 
         }
 
+        getActivity().invalidateOptionsMenu();
+
     }
 
     /**
@@ -273,6 +258,7 @@ public class NavigationDrawerFragment extends Fragment {
      *
      * @return true if NavigationDrawer is open
      */
+    @SuppressWarnings("UnusedDeclaration")
     public boolean isDrawerOpen() {
 
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
@@ -307,16 +293,14 @@ public class NavigationDrawerFragment extends Fragment {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
+            public void onDrawerSlide(View drawerView, float slideOffset) {
 
-                if (!isAdded()) {
+                // Hacky way to stop hamburger icon animation
+                if (drawerView != null) {
 
-                    return;
+                    super.onDrawerSlide(drawerView, 0);
 
                 }
-
-                getActivity().invalidateOptionsMenu();
 
             }
 
@@ -337,8 +321,6 @@ public class NavigationDrawerFragment extends Fragment {
                     PreferenceUtils.setUserLearnedNavigation(getActivity(), true);
 
                 }
-
-                getActivity().invalidateOptionsMenu();
 
             }
         };
