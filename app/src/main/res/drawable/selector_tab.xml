@@ -15,18 +15,17 @@
   ~ limitations under the License.
 -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:compat="http://schemas.android.com/apk/res-auto">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/ic_search"
-        android:title="@string/action_search"
-        compat:showAsAction="ifRoom" />
+        android:state_pressed="true"
+        android:drawable="@color/selector_light_gray" />
 
     <item
-        android:id="@+id/refresh"
-        android:title="@string/action_refresh"
-        compat:showAsAction="never" />
+        android:state_focused="true"
+        android:drawable="@color/selector_light_gray"/>
 
-</menu>
+    <item
+        android:drawable="@android:color/transparent"/>
+
+</selector>

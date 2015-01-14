@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2014 John Persano
+  ~ Copyright 2015 John Persano
+  ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
@@ -12,7 +13,7 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
+-->
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,5 +24,5 @@
     android:textColor="?android:textColorPrimary"
     android:gravity="center_vertical"
     android:paddingLeft="16dp"
-    style="@android:style/TextAppearance.Small"
-    tools:ignore="RtlHardcoded" />
+    tools:ignore="RtlHardcoded,RtlSymmetry"
+    style="@android:style/TextAppearance.Small" />

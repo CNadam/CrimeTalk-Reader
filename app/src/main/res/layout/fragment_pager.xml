@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2014 John Persano
+  ~ Copyright 2015 John Persano
+  ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
@@ -12,27 +13,34 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
+-->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tabstrip="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <uk.org.crimetalk.views.TabStrip
+        xmlns:tabstrip="http://schemas.android.com/apk/res-auto"
         android:id="@+id/tabstrip"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
+        android:layout_height="48dp"
         android:background="@color/crimetalk_red"
-        tabstrip:pstsUnderlineHeight="2dp"
-        tabstrip:pstsUnderlineColor="@color/shadow"
-        tabstrip:pstsIndicatorColor="@color/white"
-        tabstrip:pstsIndicatorHeight="4dp"
-        tabstrip:pstsDividerColor="@android:color/transparent"
         tabstrip:pstsActivateTextColor="@color/white"
         tabstrip:pstsDeactivateTextColor="@color/light_gray"
-        style="@style/Theme.CrimeTalk"/>
+        tabstrip:pstsDividerColor="@android:color/transparent"
+        tabstrip:pstsIndicatorColor="@color/white"
+        tabstrip:pstsIndicatorHeight="2dp"
+        tabstrip:pstsUnderlineHeight="0dp"
+        tabstrip:pstsIndicatorPadding="12dp"
+        style="@style/Theme.CrimeTalk" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/shadow"
+        tools:ignore="PxUsage" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2014 John Persano
+  ~ Copyright 2015 John Persano
+  ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
@@ -12,7 +13,7 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
+-->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,11 +31,11 @@
             android:id="@+id/cover"
             android:layout_width="match_parent"
             android:layout_height="256dp"
+            android:padding="4dp"
             android:contentDescription="@string/description_book_cover" />
 
         <TextView
             android:id="@+id/title"
-            style="@android:style/TextAppearance.Holo.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -42,7 +43,8 @@
             android:maxLines="2"
             android:padding="4dp"
             android:textColor="?android:textColorPrimary"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"
+            style="@android:style/TextAppearance.Holo.Large" />
 
         <TextView
             android:id="@+id/format"
@@ -76,7 +78,7 @@
             android:layout_marginTop="8dp"
             android:padding="4dp"
             android:textColor="?android:textColorSecondary"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/information"

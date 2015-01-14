@@ -20,10 +20,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <uk.org.crimetalk.views.TabStrip
+        xmlns:tabstrip="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tabstrip"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/crimetalk_red"
+        android:elevation="2dp"
+        tabstrip:pstsActivateTextColor="@color/white"
+        tabstrip:pstsDeactivateTextColor="@color/light_gray"
+        tabstrip:pstsDividerColor="@android:color/transparent"
+        tabstrip:pstsIndicatorColor="@color/white"
+        tabstrip:pstsIndicatorHeight="2dp"
+        tabstrip:pstsUnderlineHeight="0dp"
+        tabstrip:pstsIndicatorPadding="12dp"
+        style="@style/Theme.CrimeTalk" />
 
-    <FrameLayout
-        android:id="@+id/container"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
