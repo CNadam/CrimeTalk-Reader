@@ -1,6 +1,3 @@
-#built application files
-*.apk
-
 # generated files
 bin/
 gen/
@@ -13,6 +10,7 @@ local.properties
 .project
 
 # Android Studio
+*.iml
 .idea
 .gradle
 build/
