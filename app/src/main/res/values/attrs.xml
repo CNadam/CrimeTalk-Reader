@@ -17,6 +17,11 @@
 
 <resources>
 
+    <!-- Attributes for views/NavigationDrawerContainer -->
+    <declare-styleable name="ScrimInsetsView">
+        <attr name="insetForeground" format="reference|color" />
+    </declare-styleable>
+
     <!-- Attributes for views/TabStrip -->
     <declare-styleable name="TabStrip">
         <attr name="pstsIndicatorColor" format="color" />
