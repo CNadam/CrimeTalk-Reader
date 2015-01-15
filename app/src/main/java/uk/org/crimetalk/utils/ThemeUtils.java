@@ -60,16 +60,6 @@ public class ThemeUtils {
      */
     public static void setTheme(Activity activity, boolean shouldColorStatusBar) {
 
-        if (PreferenceUtils.getDarkTheme(activity)) {
-
-            activity.setTheme(R.style.Theme_CrimeTalk);
-
-            return;
-
-        }
-
-        activity.setTheme(R.style.Theme_CrimeTalk_Light);
-
         // Lint is strange here so nest the 'if' statements
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
@@ -83,6 +73,16 @@ public class ThemeUtils {
 
         }
 
+        if (PreferenceUtils.getDarkTheme(activity)) {
+
+            activity.setTheme(R.style.Theme_CrimeTalk);
+
+            return;
+
+        }
+
+        activity.setTheme(R.style.Theme_CrimeTalk_Light);
+
     }
 
     /**
@@ -93,8 +93,8 @@ public class ThemeUtils {
      */
     public static void setThemeImmediately(Activity activity) {
 
-        Intent _result = new Intent();
-        activity.setResult(Activity.RESULT_OK, _result);
+        final Intent intent = new Intent();
+        activity.setResult(Activity.RESULT_OK, intent);
 
         activity.finish();
         activity.startActivity(new Intent(activity, activity.getClass()));
