@@ -17,6 +17,8 @@ package uk.org.crimetalk.utils;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
+import android.view.WindowManager;
 
 import uk.org.crimetalk.R;
 
@@ -45,6 +47,41 @@ public class ThemeUtils {
         }
 
         activity.setTheme(R.style.Theme_CrimeTalk_Light);
+
+    }
+
+    /**
+     * Sets the theme of the current {@link android.app.Activity}.
+     * This should be called before the super method and
+     * {@link android.app.Activity#setContentView(int)}.
+     *
+     * @param activity The current {@link android.app.Activity}
+     * @param shouldColorStatusBar True if the status bar should be colored in devices running at least API 21
+     */
+    public static void setTheme(Activity activity, boolean shouldColorStatusBar) {
+
+        if (PreferenceUtils.getDarkTheme(activity)) {
+
+            activity.setTheme(R.style.Theme_CrimeTalk);
+
+            return;
+
+        }
+
+        activity.setTheme(R.style.Theme_CrimeTalk_Light);
+
+        // Lint is strange here so nest the 'if' statements
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            if(shouldColorStatusBar) {
+
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                activity.getWindow().setStatusBarColor(activity.getResources().getColor(R.color.crimetalk_dark_red));
+
+            }
+
+        }
 
     }
 
