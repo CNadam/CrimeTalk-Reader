@@ -15,6 +15,7 @@
 
 package uk.org.crimetalk;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.github.johnpersano.supertoasts.SuperActivityToast;
+import com.github.johnpersano.supertoasts.SuperToast;
 
 import uk.org.crimetalk.fragments.AboutFragment;
 import uk.org.crimetalk.utils.ThemeUtils;
@@ -43,7 +47,7 @@ public class AboutActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeUtils.setTheme(this);
+        ThemeUtils.setTheme(this, true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
@@ -87,9 +91,18 @@ public class AboutActivity extends ActionBarActivity {
 
             case R.id.action_rate:
 
-                final Intent rateIntent = new Intent(Intent.ACTION_VIEW);
-                rateIntent.setData(Uri.parse(RATE_URL));
-                startActivity(rateIntent);
+                // Without the 'try' statement this could crash if the Play store is not found on the device
+                try {
+
+                    final Intent rateIntent = new Intent(Intent.ACTION_VIEW);
+                    rateIntent.setData(Uri.parse(RATE_URL));
+                    startActivity(rateIntent);
+
+                } catch (ActivityNotFoundException activityNotFoundException) {
+
+                    SuperActivityToast.create(AboutActivity.this, "Play store not found!", SuperToast.Duration.LONG).show();
+
+                }
 
                 return true;
 
