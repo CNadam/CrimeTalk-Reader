@@ -50,7 +50,7 @@ public class SearchActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeUtils.setTheme(this);
+        ThemeUtils.setTheme(this, true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 

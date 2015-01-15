@@ -32,7 +32,7 @@ public class SettingsActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeUtils.setTheme(this);
+        ThemeUtils.setTheme(this, true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
@@ -73,7 +73,7 @@ public class SettingsActivity extends ActionBarActivity {
 
     /**
      * {@link android.app.Fragment} that displays settings for the application.
-     * This can be navigated to in the secondary items of the {@link uk.org.crimetalk.fragments.NavigationDrawerFragment}.
+     * This can be navigated to in the secondary items of the NavigationDrawer.
      */
     public static class SettingsFragment extends PreferenceFragment {
 
