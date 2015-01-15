@@ -526,7 +526,8 @@ public class ArticleListFragment extends ListFragment implements SwipeRefreshLay
 
         private boolean canListViewScrollUp(ListView listView) {
 
-            return ViewCompat.canScrollVertically(listView, -1);
+            // Should not be able to swipe refresh while loading or while scrolling
+            return mArticleListAdapter != null && mArticleListAdapter.isEmpty() || ViewCompat.canScrollVertically(listView, -1);
 
         }
 
