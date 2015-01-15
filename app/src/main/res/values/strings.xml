@@ -41,13 +41,13 @@
     <string name="button_more_information">More Information</string>
     <string name="description_book_cover">Book cover</string>
 
+    <!-- Strings for the fragments/ErrorFragment -->
+    <string name="error_message">Oh snap! Something went wrong, please report this issue to the developer.</string>
+
     <!-- Strings for the fragments/LibraryFragment -->
     <string name="library_featured_articles">Featured articles</string>
     <string name="library_in_brief">In brief</string>
     <string name="library_editors_blog">Editor\'s blog</string>
-
-    <!-- Strings for the fragments/NavigationDrawerFragment -->
-
 
     <!-- Strings for fragments/PagerFragment -->
     <string name="title_quick_nav_fragment">Quick Navigation</string>
@@ -123,6 +123,11 @@
     <!-- Strings for MainActivity -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="library">Library</string>
+    <string name="press_cuttings">Press cuttings</string>
+    <string name="shop">Shop</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
 
     <!-- Strings for the SearchActivity -->
     <string name="search_title">Search</string>

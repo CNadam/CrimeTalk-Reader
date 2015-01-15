@@ -31,15 +31,4 @@
         <item>PagerSlidingTabStrip</item>
     </string-array>
 
-    <!-- Arrays for MainActivity -->
-    <string-array name="primary_navigation_items">
-       <item>Library</item>
-       <item>Press cuttings</item>
-       <item>Shop</item>
-   </string-array>
-    <string-array name="secondary_navigation_items">
-        <item>Settings</item>
-        <item>About</item>
-    </string-array>
-
 </resources>
