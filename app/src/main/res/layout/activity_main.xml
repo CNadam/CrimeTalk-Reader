@@ -19,6 +19,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -35,12 +36,28 @@
 
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/navigation_drawer"
-        android:name="uk.org.crimetalk.fragments.NavigationDrawerFragment"
+    <!-- The navigation drawer -->
+    <uk.org.crimetalk.views.NavigationDrawerContainer
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/navigation_container"
         android:layout_width="@dimen/navigation_drawer_width"
+        android:fitsSystemWindows="true"
         android:layout_height="match_parent"
-        android:layout_gravity="start" />
+        android:layout_gravity="start"
+        android:background="?android:windowBackground"
+        app:insetForeground="#4000">
+
+        <uk.org.crimetalk.views.NavigationDrawerListView
+            android:layout_width="match_parent"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:id="@+id/navigation_list"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="8dp"/>
+
+    </uk.org.crimetalk.views.NavigationDrawerContainer>
+
+
 
 </android.support.v4.widget.DrawerLayout>
 
