@@ -23,7 +23,7 @@
     android:layout_height="112dp"
     android:background="?attr/colorPrimary"
     android:minHeight="?attr/actionBarSize"
-    android:elevation="2dp"
+    android:elevation="@dimen/toolbar_elevation"
     compat:popupTheme="@style/Theme.CrimeTalk"
     compat:theme="@style/Theme.CrimeTalk.Toolbar"
     tools:ignore="Overdraw">
