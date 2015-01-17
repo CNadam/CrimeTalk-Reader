@@ -23,4 +23,7 @@
     <!-- Height of the Toolbar in fragments/ArticleContentFragment -->
     <dimen name="toolbar_extended_height">112dp</dimen>
 
+    <!-- Height of the Toolbar elevation -->
+    <dimen name="toolbar_elevation">8dp</dimen>
+
 </resources>
