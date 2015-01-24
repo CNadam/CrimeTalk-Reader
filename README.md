@@ -42,7 +42,7 @@ Developer
 License
 =======
 
-    Copyright 2014 John Persano
+    Copyright 2015 John Persano
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -55,25 +55,5 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [icon]: https://github.com/JohnPersano/CrimeTalk-Reader/blob/master/app/src/main/res/drawable-xhdpi/ic_launcher.png
